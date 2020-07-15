@@ -8,7 +8,7 @@ class VideoCamera(object):
     
     def __del__(self):
         self.video.release()
-    
+
     def get_frame(self):
         success, image = self.video.read()
         image=cv2.resize(image,None,fx=ds_factor,fy=ds_factor,interpolation=cv2.INTER_AREA)
@@ -19,3 +19,4 @@ class VideoCamera(object):
         	break
         ret, jpeg = cv2.imencode('.jpg', image)
         return jpeg.tobytes()
+# testing
